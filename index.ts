@@ -31,6 +31,11 @@ app.use(bodyParser.json());
 const API_KEY = process.env.API_KEY;
 const MODEL_NAME = 'Meta-Llama-3.1-8B-Instruct';
 
+app.get('/api/test', (req, res) => {
+    res.json({ message: 'The server is up and running!' });
+  });
+  
+
 app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
 
