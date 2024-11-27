@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5001; // Allow dynamic port if needed (e.g., in
 
 // Enable CORS for your frontend URL
 const ALLOWED_ORIGINS = [
-    'https://chilakhbhaibackend.netlify.app/', 
+    'https://chilakhbhaiai.netlify.app', // Frontend URL
+    'https://chilakhbhaibackend.netlify.app', // Backend URL (for testing)
   ];
 
   app.use(
