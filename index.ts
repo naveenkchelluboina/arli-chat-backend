@@ -15,17 +15,11 @@ const ALLOWED_ORIGINS = [
     'https://chilakhbhaibackend.netlify.app', // Backend URL (for testing)
   ];
 
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin || ALLOWED_ORIGINS.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error('Not allowed by CORS'));
-        }
-      },
-    })
-  );
+app.use(
+cors({
+    origin: '*', // Allow all origins for testing (update this in production)
+})
+);
 app.use(bodyParser.json());
 
 const API_KEY = process.env.API_KEY;
@@ -33,7 +27,11 @@ const MODEL_NAME = 'Meta-Llama-3.1-8B-Instruct';
 
 app.get('/api/test', (req, res) => {
     res.json({ message: 'The server is up and running!' });
-  });
+});
+
+app.get('/api/debug', (req, res) => {
+res.json({ apiKey: process.env.API_KEY || 'API_KEY not loaded' });
+});
   
 
 app.post('/api/chat', async (req, res) => {
