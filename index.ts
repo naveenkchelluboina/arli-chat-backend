@@ -9,12 +9,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001; // Allow dynamic port if needed (e.g., in production)
 
-// Enable CORS for your frontend URL
-const ALLOWED_ORIGINS = [
-    'https://chilakhbhaiai.netlify.app', // Frontend URL
-    'https://chilakhbhaibackend.netlify.app', // Backend URL (for testing)
-  ];
-
 app.use(
 cors({
     origin: '*', // Allow all origins for testing (update this in production)
@@ -28,11 +22,6 @@ const MODEL_NAME = 'Meta-Llama-3.1-8B-Instruct';
 app.get('/api/test', (req, res) => {
     res.json({ message: 'The server is up and running!' });
 });
-
-app.get('/api/debug', (req, res) => {
-res.json({ apiKey: process.env.API_KEY || 'API_KEY not loaded' });
-});
-  
 
 app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
