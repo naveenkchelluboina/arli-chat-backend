@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { startKeepAlive } from './src/keepalive';
 
 dotenv.config();
 
@@ -107,4 +108,7 @@ app.listen(PORT, () => {
     port: PORT,
     environment: process.env.NODE_ENV || 'development'
   });
+  if (process.env.NODE_ENV === 'production') {
+    startKeepAlive();
+  }
 });

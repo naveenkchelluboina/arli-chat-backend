@@ -32,6 +32,7 @@ env
 API_KEY=your_arli_ai_api_key
 PORT=5001
 MODEL_NAME=Meta-Llama-3.1-8B-Instruct
+RENDER_URL=https://arli-chat-backend.onrender.com
 :
 bash
 npm run dev
@@ -56,6 +57,7 @@ json
 | API_KEY | Your Arli AI API key | Required |
 | PORT | Server port number | 5001 |
 | MODEL_NAME | Default AI model | Meta-Llama-3.1-8B-Instruct |
+| RENDER_URL | Your Render deployment URL | Required for production |
 
 ## Development
 
